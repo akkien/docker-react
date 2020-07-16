@@ -18,7 +18,7 @@ if [ $TRAVIS_BRANCH == "master" ] ; then
     # git status # debug
     # git commit -m "Deploy compressed files"
     # git push -f deploy HEAD:master
-    whoami
+    ls /home
     docker run -d -p 3000:3000 akkien/docker-react
 
 else
