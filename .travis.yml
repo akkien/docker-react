@@ -10,7 +10,7 @@ branches:
     - master
 env:
   global:
-    - REMOTE_USER=travis
+    - REMOTE_USER=deployer
     - REMOTE_HOST=128.199.90.27
 before_install:
   - openssl aes-256-cbc -K $encrypted_0ddd2445e49f_key -iv $encrypted_0ddd2445e49f_iv -in travis_rsa.enc -out travis_rsa -d
