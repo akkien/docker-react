@@ -5,19 +5,7 @@ set -xe
 
 if [ $TRAVIS_BRANCH == "master" ] ; then
 
-    # # setup ssh agent, git config and remote
-    # eval "$(ssh-agent -s)"
-    # ssh-add ~/.ssh/travis_rsa
-    # git remote add deploy "travis@webhost.planecq.xyz:/var/www/planecq.com"
-    # git config user.name "Le Trung Kien"
-    # git config user.email "akkien99@gmail.com"
-
-    # # commit compressed files and push it to remote
-    # rm -f .gitignore
-    # git add .
-    # git status # debug
-    # git commit -m "Deploy compressed files"
-    # git push -f deploy HEAD:master
+    ssh $REMOTE_USER@$REMOTE_HOST
     ls /home
     docker run -d -p 3000:3000 akkien/docker-react
 
