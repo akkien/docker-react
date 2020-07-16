@@ -18,9 +18,8 @@ if [ $TRAVIS_BRANCH == "master" ] ; then
     # git status # debug
     # git commit -m "Deploy compressed files"
     # git push -f deploy HEAD:master
-    ls -a
     whoami
-    yarn start
+    docker run -d -p 3000:3000 akkien/docker-react
 
 else
     echo "No deploy script for branch '$TRAVIS_BRANCH'"
