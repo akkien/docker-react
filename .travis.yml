@@ -10,10 +10,11 @@ branches:
     - master
 env:
   global:
-    - REMOTEUSER=travis
-    - REMOTEHOST=128.199.90.27
+    - REMOTE_USER=travis
+    - REMOTE_HOST=128.199.90.27
 before_install:
   - openssl aes-256-cbc -K $encrypted_0ddd2445e49f_key -iv $encrypted_0ddd2445e49f_iv -in travis_rsa.enc -out travis_rsa -d
+  - chmod 600 ~/.ssh/travis_rsa
   - docker build -t akkien/docker-react -f Dockerfile.dev .
 script:
   - docker run -e CI=true akkien/docker-react npm run test
