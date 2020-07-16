@@ -5,9 +5,7 @@ set -xe
 
 if [ $TRAVIS_BRANCH == "master" ] ; then
 
-    ssh $REMOTE_USER@$REMOTE_HOST
-    ls /home
-    docker run -d -p 3000:3000 akkien/docker-react
+    ssh $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/onvps.sh
 
 else
     echo "No deploy script for branch '$TRAVIS_BRANCH'"
