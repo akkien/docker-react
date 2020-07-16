@@ -18,7 +18,8 @@ if [ $TRAVIS_BRANCH == "master" ] ; then
     # git status # debug
     # git commit -m "Deploy compressed files"
     # git push -f deploy HEAD:master
-
+    ls -a
+    whoami
     yarn start
 
 else
