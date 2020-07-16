@@ -14,7 +14,7 @@ env:
     - REMOTE_HOST=128.199.90.27
 before_install:
   - openssl aes-256-cbc -K $encrypted_0ddd2445e49f_key -iv $encrypted_0ddd2445e49f_iv -in travis_rsa.enc -out travis_rsa -d
-  - rm travis_rsa.enc # Don't need it anymore
+  - rm travis_rsa.enc
   - chmod 600 travis_rsa
   - mv travis_rsa ~/.ssh/id_rsa
   - docker build -t akkien/docker-react -f Dockerfile.dev .
