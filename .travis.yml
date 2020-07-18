@@ -1,24 +1,26 @@
 language: generic
 sudo: required
 services:
-  - docker
+- docker
 addons:
   sshknownhosts:
-    - 128.199.90.27
+  - 128.199.90.27
 branches:
   only:
-    - master
+  - master
 env:
   global:
-    - REMOTE_USER=deployer
-    - REMOTE_HOST=128.199.90.27
+  - REMOTE_USER=deployer
+  - REMOTE_HOST=128.199.90.27
+  - secure: PF6RReuNVxEorBRCba1TNyRn0wWR2+x7MWB6A8tzsRzKB+s5htLktEqvNxwxU5yT3LrJFEvYEcbJNLMuFxTux7byO79gXI1vWoCHrzcXGeo8nu2d6UvJuj/iE15XmoKStye73cbQdTDD+b5CrDtVgLaEfZrqMAtAxDU5SjoT/dq2vC3iyq3J89PVYiou+96mPV2iTDPshfKzXNY/H2Lw2ac04e8jR8H3/P0hqH+A4eRSh+JBX11KcmCo6nXZL5tIyRP12/gTgYcbjLbhxXaOO0Jt7cDWetpEaKN/sKajQbHojflyPjREl4H3JX5cfx2+45uA3JnoE5zdBe5ONKA4goU1GIxKvqbgLlR8lzabeNzvgVJ47j3GnYIeGj28WIR6Yi19zb1CnHOyNyGe6j+cNr8erqOLPbKa1d/sC+9WoJlXCiz4MYBY7Wuxat/jATIt3TeGvlmEl+AocHqzMKkNvbWNi2sloraVmp0injfrOTe7yi34pME7CQxxwswsNvVU1iBPm39l1J1H44Apmc9FbfWvVcFP9MUxNc6R87N01lehkf6NVFO0sl9MtNr4Q/GKjHtGwd3JJ+4gTOFXz2LlGvFIKdhb6Xw+ttyHuN2T6YUej9S03s3e6J2f9Lp8On5asHfacPTa39aL4nndo5NhVEr+jKZglBoov9/SJsXeR+k=
 before_install:
-  - openssl aes-256-cbc -K $encrypted_0ddd2445e49f_key -iv $encrypted_0ddd2445e49f_iv -in travis_rsa.enc -out travis_rsa -d
-  - rm travis_rsa.enc
-  - chmod 600 travis_rsa
-  - mv travis_rsa ~/.ssh/id_rsa
-  - docker build -t akkien/docker-react -f Dockerfile.dev .
+- openssl aes-256-cbc -K $encrypted_0ddd2445e49f_key -iv $encrypted_0ddd2445e49f_iv
+  -in travis_rsa.enc -out travis_rsa -d
+- rm travis_rsa.enc
+- chmod 600 travis_rsa
+- mv travis_rsa ~/.ssh/id_rsa
+- docker build -t akkien/docker-react -f Dockerfile.dev .
 script:
-  - docker run -e CI=true akkien/docker-react npm run test
+- docker run -e CI=true akkien/docker-react npm run test
 after_success:
-  - './scripts/deploy.sh'
+- "./scripts/deploy.sh"
