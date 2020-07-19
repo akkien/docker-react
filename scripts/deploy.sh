@@ -5,6 +5,7 @@ set -xe
 
 if [ $TRAVIS_BRANCH == "master" ] ; then
 
+    whoami
     ssh $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/onvps.sh
 
 else
