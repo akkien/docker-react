@@ -7,7 +7,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
-        <p>My first travis-ci on Digital Ocean. User deployer</p>
+        <p>My first travis-ci on Digital Ocean. Repo changed</p>
         <a
           className='App-link'
           href='https://reactjs.org'
