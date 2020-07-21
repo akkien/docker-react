@@ -14,6 +14,6 @@ if [ "$(docker ps -q -f name=reactjs)" ]; then
       docker rm reactjs
   fi  
 fi
-
-docker pull akkien/docker-react
-docker run -d -p 80:80 --name reactjs akkien/docker-react
+exit 80
+# docker pull akkien/docker-react
+# docker run -d -p 80:80 --name reactjs akkien/docker-react

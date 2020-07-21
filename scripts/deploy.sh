@@ -12,7 +12,8 @@ if [ $TRAVIS_BRANCH == "master" ] ; then
     docker push $DOCKER_IMAGE
     
     ssh $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/onvps.sh
-
+    code = $?
+    exit code
 else
     echo "No deploy script for branch '$TRAVIS_BRANCH'"
 fi
